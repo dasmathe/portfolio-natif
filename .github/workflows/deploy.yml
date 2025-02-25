@@ -28,7 +28,6 @@ jobs:
           cp -r assets/js output/
           cp -r assets/img output/
           cp -r assets/translations output/
-          cp -r assets/pages output/
           cp -r assets/fonts output/
 
       - name: Deploy to GitHub Pages
