@@ -12,10 +12,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: Fix output folder permissions
         run: |
           mkdir -p output
           chmod -R 777 output
+
       - name: Install PHP
         run: sudo apt-get install -y php-cli
 
@@ -25,6 +27,10 @@ jobs:
       - name: Copy assets to output
         run: |
           cp -r assets/ output/assets/
+
+      - name: Copy LICENSE to output
+        run: |
+          cp LICENSE output/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
