@@ -7,19 +7,19 @@ try {
 
     echo "Source Directory: $sourceDir\n";
     echo "Output Directory: $outputDir\n";
+
+    // Crée le dossier output s'il n'existe pas
+    if (!is_dir($outputDir)) {
+        if (!mkdir($outputDir, 0755, true)) {
+            throw new Exception("Impossible de créer le dossier de sortie : $outputDir");
+        }
+    }
+
+    // Vérifie si le dossier est bien accessible en écriture
     if (!is_writable($outputDir)) {
         throw new Exception("Le dossier de sortie n'est pas accessible en écriture : $outputDir");
     }
 
-    // Crée le dossier output s'il n'existe pas
-    if (!is_dir($outputDir)) {
-        mkdir($outputDir, 0755, true);
-    }
-    
-    if (!chmod($outputDir, 0755)) {
-        throw new Exception("Impossible de modifier les permissions du dossier de sortie");
-    }
-    
     // Liste tous les fichiers PHP (sauf ce script)
     $files = glob("$sourceDir/*.php");
     if ($files === false) {
@@ -36,7 +36,10 @@ try {
         $htmlContent = ob_get_clean();
 
         // Enregistre le fichier HTML généré
-        file_put_contents($outputFile, $htmlContent);
+        if (file_put_contents($outputFile, $htmlContent) === false) {
+            throw new Exception("Impossible d'écrire dans le fichier : $outputFile");
+        }
+
         echo "Generated: $outputFile\n";
     }
 
