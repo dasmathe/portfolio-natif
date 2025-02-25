@@ -1,4 +1,4 @@
-name: Deploy PHP Static Site to GitHub Pages
+name: Deploy Static PHP to GitHub Pages
 
 on:
   push:
@@ -16,13 +16,11 @@ jobs:
       - name: Install PHP
         run: sudo apt-get install -y php-cli
 
-      - name: Serve PHP Locally & Convert to Static HTML
-        run: |
-          php -S localhost:8000 -t . &
-          wget --mirror --convert-links --adjust-extension --page-requisites --no-parent http://localhost:8000/
+      - name: Generate Static HTML
+        run: php generate_static.php
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./localhost_8000
+          publish_dir: ./output
