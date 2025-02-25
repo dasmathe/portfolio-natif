@@ -20,16 +20,21 @@ try {
         throw new Exception("Le dossier de sortie n'est pas accessible en écriture : $outputDir");
     }
 
-    // Liste tous les fichiers PHP (sauf ce script)
+    // Liste tous les fichiers PHP sauf ce script
     $files = glob("$sourceDir/*.php");
+
     if ($files === false) {
         throw new Exception("Impossible de lire les fichiers dans $sourceDir");
     }
 
-    // Convertit chaque fichier PHP en HTML
     foreach ($files as $file) {
+        // Exclure ce script et éviter d'inclure des fichiers déjà générés
+        if ($file === __FILE__ || strpos($file, 'output/') !== false) {
+            continue;
+        }
+
         $outputFile = $outputDir . '/' . basename($file, '.php') . '.html';
-        
+
         // Capture le rendu PHP en HTML
         ob_start();
         include $file;
