@@ -552,6 +552,11 @@
             <span class="section_subtitle" data-lang="contact_subtitle"></span>
 
             <div class="contact_container container grid">
+                <div class="contact_status">
+                    <i class="uil uil-info-circle contact_status_icon"></i>
+                    <p data-lang="contact_status"></p>
+                </div>
+
                 <div class="contact_informations">
                     <div class="contact_information">
                         <i class="uil uil-phone contact_icon"></i>
@@ -572,10 +577,7 @@
                     </div>
                 </div>
 
-                <form action="sendEmail.php" method="POST" class="contact_form grid">
-                    <div class="contact_status">
-                        <p data-lang="contact_status"></p>
-                    </div>
+                <form class="contact_form grid">
                     <div class="contact_inputs grid">
                         <div class="contact_content">
                             <label for="name" class="contact_label" data-lang="contact_label_name"></label>
