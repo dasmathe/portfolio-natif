@@ -15,7 +15,11 @@ try {
     if (!is_dir($outputDir)) {
         mkdir($outputDir, 0755, true);
     }
-
+    
+    if (!chmod($outputDir, 0755)) {
+        throw new Exception("Impossible de modifier les permissions du dossier de sortie");
+    }
+    
     // Liste tous les fichiers PHP (sauf ce script)
     $files = glob("$sourceDir/*.php");
     if ($files === false) {
