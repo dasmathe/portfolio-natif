@@ -24,11 +24,7 @@ jobs:
       
       - name: Copy assets to output
         run: |
-          cp -r assets/css output/
-          cp -r assets/js output/
-          cp -r assets/img output/
-          cp -r assets/translations output/
-          cp -r assets/fonts output/
+          cp -r assets/ output/assets/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
