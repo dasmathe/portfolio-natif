@@ -29,7 +29,7 @@
                         class="footer_social">
                         <i class="uil uil-youtube"></i>
                     </a>
-                    <a href="https://github.com/Senyotsu" target="_blank" class="footer_social">
+                    <a href="https://github.com/dasmathe" target="_blank" class="footer_social">
                         <i class="uil uil-github"></i>
                     </a>
                 </div>
