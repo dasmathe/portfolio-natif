@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--==================== ICON ONGLET ====================-->
-    <link rel="icon" oncontextmenu="return false;" href="../assets/img/icon.png" type="image/x-icon">
+    <link rel="icon" oncontextmenu="return false;" href="./assets/img/icon.png" type="image/x-icon">
 
     <!--==================== UNICONS ====================-->
     <!-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> -->
-    <link rel="stylesheet" href="../assets/css/line.css">
+    <link rel="stylesheet" href="./assets/css/line.css">
 
     <!--==================== SWIPER CSS ====================-->
-    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
 
     <!--==================== CSS ====================-->
-    <link rel="stylesheet" href="../assets/css/styles.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.min.css">
 
     <title>Mon portfolio responsive</title>
 </head>
@@ -464,11 +464,11 @@
     </a>
 
      <!--==================== REVELATION SCROLL ====================-->
-     <script src="../assets/js/scrollreveal.min.js"></script>
+     <script src="./assets/js/scrollreveal.min.js"></script>
 
     <!--==================== SWIPER JS ====================-->
-    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <script src="./assets/js/swiper-bundle.min.js"></script>
 
     <!--==================== MAIN JS ====================-->
-    <script type="module" src="../assets/js/main-bundle.js"></script>
+    <script type="module" src="./assets/js/main-bundle.js"></script>
 </body>
