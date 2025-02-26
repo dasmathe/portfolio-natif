@@ -784,11 +784,12 @@ img {
   font-weight: var(--font-semi-bold);
 }
 
-a.parcours_title{
-  color: var(--text-color);
+.parcours_title a{
+  color: var(--title-color);
+  display: flex;
 }
 
-a.parcours_title:hover{
+.parcours_title a:hover{
   color: var(--first-color);
 }
 

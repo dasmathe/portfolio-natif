@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +12,11 @@
     <link rel="stylesheet" href="assets/css/line.css">
 
     <!--==================== SWIPER CSS ====================-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" media="print" onload="this.onload=null;this.removeAttribute('media');">
+    <noscript><link rel="stylesheet" href="assets/css/swiper-bundle.min.css"></noscript>
 
     <!--==================== CSS ====================-->
+    <link rel="preload" href="assets/css/styles.min.css" as="style">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 
     <title>Mon portfolio responsive</title>
@@ -378,8 +379,10 @@
                         <!--==================== Parcours 1 ====================-->
                         <div class="parcours_data">
                             <div>
-                                <h3 class="">
-                                    <a href="Pages/skills-formation.php" class="parcours_title" data-lang="education_bachelor">
+                                <h3 class="parcours_title">
+                                    <a href="pages/skills-formation.html" class="">
+                                        <span data-lang="education_bachelor"></span>
+                                        <i class="uil uil-arrow-right"></i>
                                     </a>
                                 </h3>
                                 <span class="parcours_subtitle" data-lang="education_university"></span>

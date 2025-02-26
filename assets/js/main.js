@@ -185,8 +185,10 @@ function scrollActive() {
         if (targetLink) {
             if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                 targetLink.classList.add('active-link');
+                targetLink.setAttribute('aria-current', 'page');
             } else {
                 targetLink.classList.remove('active-link');
+                targetLink.removeAttribute('aria-current');
             }
         }
     });
