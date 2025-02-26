@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +12,11 @@
     <link rel="stylesheet" href="assets/css/line.css">
 
     <!--==================== SWIPER CSS ====================-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" media="print" onload="this.onload=null;this.removeAttribute('media');">
+    <noscript><link rel="stylesheet" href="assets/css/swiper-bundle.min.css"></noscript>
 
     <!--==================== CSS ====================-->
+    <link rel="preload" href="assets/css/styles.min.css" as="style">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 
     <title>Mon portfolio responsive</title>
@@ -24,37 +25,34 @@
 <body>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
-    <nav class="nav container">
+    <nav class="nav container" data-aria="nav_main" role="navigation">
         <a href="#" class="nav_logo">Mathéo Da Silva</a>
 
         <div class="nav_menu" id="nav-menu">
             <ul class="nav_list grid">
                 <li class="nav_item">
-                    <a href="#home" class="nav_link active-link" data-lang="home">
+                    <a href="#home" class="nav_link active-link" aria-current="page" data-lang="home">
                         <!-- icon de maison-->
-                        <i class="uil uil-house-user nav_icon"></i>
-                        Accueil
+                        <i class="uil uil-house-user nav_icon" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li class="nav_item">
                     <a href="#about" class="nav_link" data-lang="about">
                         <!-- icon d'une personne-->
-                        <i class="uil uil-user nav_icon"></i>
-                        A propos
+                        <i class="uil uil-user nav_icon" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li class="nav_item">
                     <a href="#skills" class="nav_link" data-lang="skills">
                         <!-- icon d'une fiche-->
                         <i class="uil uil-file-alt nav_icon"></i>
-                        Compétences
                     </a>
                 </li>
 
                 <li class="nav_item">
                     <a href="#experience" class="nav_link" data-lang="experience">
                         <!-- icon d'un logo info-->
-                        <i class="uil uil-info-circle nav_icon"></i>
+                        <i class="uil uil-info-circle nav_icon" aria-hidden="true"></i>
                         Parcours
                     </a>
                 </li>
@@ -63,34 +61,32 @@
                     <a href="#projects" class="nav_link" data-lang="projects">
                         <!-- icon d'une dossier-->
                         <i class="uil uil-folder-exclamation nav_icon"></i>
-                        Projets
                     </a>
                 </li>
                 <li class="nav_item">
                     <a href="#contact" class="nav_link" data-lang="contact">
                         <!-- icon d'un message-->
-                        <i class="uil uil-message nav_icon"></i>
-                        Contactez-moi
+                        <i class="uil uil-message nav_icon" aria-hidden="true"></i>
                     </a>
                 </li>
             </ul>
-            <i class="uil uil-multiply nav_close" id="nav-close"></i>
+            <i class="uil uil-multiply nav_close" id="nav-close" aria-hidden="true"></i>
         </div>
 
         <div class="nav_btns">
             <!-- Changer de thèmes -->
-            <i class="uil uil-moon change-theme" id="theme-btn"></i>
+            <i class="uil uil-moon change-theme" id="theme-btn" aria-hidden="true" data-aria="toggle_theme"></i>
             <div class="nav_language">
                 <div class="language-dropdown">
-                    <select id="languageSelector">
+                    <select id="languageSelector" data-aria="langage_selector">
                         <option value="fr">Français</option>
                         <option value="en">English</option>
                     </select>
                 </div>
             </div>
 
-            <div class="nav_toggle" id="nav-toggle">
-                <i class="uil uil-list-ul toggle_icon"></i>
+            <div class="nav_toggle" id="nav-toggle" data-aria="toggle_nav">
+                <i class="uil uil-list-ul toggle_icon" aria-hidden="true"></i>
             </div>
 
         </div>
@@ -449,8 +445,10 @@
                         <!--==================== Parcours 1 ====================-->
                         <div class="parcours_data">
                             <div>
-                                <h3 class="">
-                                    <a href="Pages/skills-formation.php" class="parcours_title" data-lang="education_bachelor">
+                                <h3 class="parcours_title">
+                                    <a href="pages/skills-formation.html" class="">
+                                        <span data-lang="education_bachelor"></span>
+                                        <i class="uil uil-arrow-right"></i>
                                     </a>
                                 </h3>
                                 <span class="parcours_subtitle" data-lang="education_university"></span>

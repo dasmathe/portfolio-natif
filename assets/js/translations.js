@@ -1,5 +1,5 @@
 const translations = {};
-const selectedLanguage = 'fr';
+let selectedLanguage = localStorage.getItem('lang') || 'fr';
 
 function loadTranslations(language) {
     return fetch(`assets/translations/${language}.json`)
@@ -11,19 +11,38 @@ function loadTranslations(language) {
 }
 
 function translatePage(language) {
+    const translationData = translations[language];
+
+    if (!translationData) return;
+
     document.querySelectorAll('[data-lang]').forEach(element => {
         const key = element.dataset.lang;
-        element.innerText = translations[language][key];
+        if (translationData.text[key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translationData.text[key];
+            } else {
+                element.innerText = translationData.text[key];
+            }
+        }
     });
+
+    document.querySelectorAll('[data-aria]').forEach(element => {
+        const key = element.dataset.aria;
+        if (translationData.aria[key]) {
+            element.setAttribute('aria-label', translationData.aria[key]);
+        }
+    });
+
     var cvElement = document.getElementById("CV")
     var skillsBar = document.querySelectorAll(".skills_bar, .skills_number")
 
     if (language === 'fr') {
         adaptElementToLanguageFr(cvElement, skillsBar)
     }
-    else if (language === 'en') {
-        adaptElementToLanguageEn(cvElement, skillsBar)
+    else {
+        adaptElementToOtherLanguage(cvElement, skillsBar)
     }
+    localStorage.setItem('lang', language);
 }
 
 function adaptElementToLanguageFr(elementCV, skills) {
@@ -34,7 +53,7 @@ function adaptElementToLanguageFr(elementCV, skills) {
     }
 }
 
-function adaptElementToLanguageEn(elementCV, skills) {
+function adaptElementToOtherLanguage(elementCV, skills) {
     var cvFile = 'assets/pdf/CV Matheo Da Silva international.pdf'
     elementCV.setAttribute("href", cvFile)
     for (var i = 0; i < skills.length; i++) {
@@ -49,8 +68,11 @@ function init() {
     // Load translations for all available languages
     Promise.all(availableLanguages.map(language => loadTranslations(language)))
         .then(() => {
-            document.getElementById('languageSelector').addEventListener('change', (event) => {
-                const selectedLanguage = event.target.value;
+            const languageSelector = document.getElementById('languageSelector');
+            languageSelector.value = selectedLanguage;
+            
+            languageSelector.addEventListener('change', (event) => {
+                selectedLanguage = event.target.value;
                 translatePage(selectedLanguage);
             });
 
