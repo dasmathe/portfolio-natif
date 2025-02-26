@@ -22,6 +22,7 @@ try {
 
     // Liste tous les fichiers PHP sauf ce script
     $files = glob("$sourceDir/*.php");
+    $files = array_merge($files, glob("$sourceDir/pages/*.php"));
 
     if ($files === false) {
         throw new Exception("Impossible de lire les fichiers dans $sourceDir");
