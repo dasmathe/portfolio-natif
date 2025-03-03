@@ -46,7 +46,7 @@ function translatePage(language) {
 }
 
 function adaptElementToLanguageFr(elementCV, skills) {
-    var cvFile = 'assets/pdf/CV Mathéo Da Silva.pdf'
+    var cvFile = 'assets/pdf/CV fr.pdf'
     elementCV.setAttribute("href", cvFile)
     for (var i = 0; i < skills.length; i++) {
         skills[i].classList.add("hidden")
