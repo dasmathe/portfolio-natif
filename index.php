@@ -107,7 +107,7 @@
                     </div>
 
                     <div class="about_buttons">
-                        <a id="CV" download="" href="assets/pdf/CV Mathéo Da Silva.pdf" class="button button-flex">
+                        <a id="CV" download="" href="assets/pdf/CV fr.pdf" class="button button-flex">
                             <span data-lang="about_download_button"></span>
                             <i class="uil uil-download-alt button_icon"></i>
                         </a>
